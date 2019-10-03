@@ -14,3 +14,10 @@ request({url: url,json:true}, (error,response) => {
     *////////////////////////////////////////////////
     //console.log('ok');
 })
+
+const urlMap = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1IjoiY2hyaXMzNiIsImEiOiJjazFiM3BmNzcyYm4wM2NuaTZkcG40cDl0In0.XTHKJE05WYuKvwkvR4s-0A&limit=1'
+
+
+request({url:urlMap,json:true}, (error,response) => {
+    console.log('Le coordinate di Los Angeles sono '+ response.body.features[0].geometry.coordinates[0] + ' longitudine e '+ response.body.features[0].geometry.coordinates[1] +' latitudine')
+})
