@@ -28,20 +28,37 @@ if(!place)
 {
     console.log('Please provide a place')
 } else {
+    // Without the Object desctructuring
+    // geocode(place, (error,data) => {
+    //     if(error){
+    //         return console.log(error)
+    //     }
 
-    geocode(place, (error,data) => {
-        if(error){
-            return console.log(error)
-        }
+    //     forecast(data.latitude,data.longitude, (error, forecastData) => {
+    //         if(error) {
+    //             return console.log(error)
+    //         }
 
-        forecast(data.latitude,data.longitude, (error, forecastData) => {
-            if(error) {
+    //         console.log(data.location)
+    //         console.log(forecastData)
+            
+    //     })
+    // })
+
+    //With the Object desctructuring
+    geocode(place, (error,{latitude,longitude,location}) => {
+            if(error){
                 return console.log(error)
             }
-
-            console.log(data.location)
-            console.log(forecastData)
-            
+    
+            forecast(latitude,longitude, (error, forecastData) => {
+                if(error) {
+                    return console.log(error)
+                }
+    
+                console.log(location)
+                console.log(forecastData)
+                
+            })
         })
-    })
 }
