@@ -11,7 +11,12 @@ const geocode = (address,callback) => {
     {
         callback('Unable to find the location',undefined)
     } else {
-    callback(undefined,'Le coordinate di '+ response.body.features[0].place_name +' sono '+ response.body.features[0].geometry.coordinates[0] + ' longitudine e '+ response.body.features[0].geometry.coordinates[1] +' latitudine')
+    //OLD callback(undefined,{'Le coordinate di '+ response.body.features[0].place_name +' sono '+ response.body.features[0].geometry.coordinates[0] + ' longitudine e '+ response.body.features[0].geometry.coordinates[1] +' latitudine')
+        callback(undefined,{
+            latitude:response.body.features[0].center[1],
+            longitude:response.body.features[0].center[0],
+            location: response.body.features[0].place_name
+        })
     }
 })
 }

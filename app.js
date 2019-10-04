@@ -22,13 +22,26 @@ const forecast = require('./utils/forecast.js')
 //     }
 // })
 
-geocode('Torino', (error,data) => {
-    console.log('Error ',error)
-    console.log('Data ',data)
-})
+const place = process.argv[2]
 
+if(!place)
+{
+    console.log('Please provide a place')
+} else {
 
-forecast('torino,it', (error, data) => {
-  console.log('Error', error)
-  console.log('Data', data)
-})
+    geocode(place, (error,data) => {
+        if(error){
+            return console.log(error)
+        }
+
+        forecast(data.latitude,data.longitude, (error, forecastData) => {
+            if(error) {
+                return console.log(error)
+            }
+
+            console.log(data.location)
+            console.log(forecastData)
+            
+        })
+    })
+}
