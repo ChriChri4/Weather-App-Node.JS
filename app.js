@@ -28,7 +28,7 @@ if(!place)
 {
     console.log('Please provide a place')
 } else {
-    // Without the Object desctructuring
+    // Without the Object destructuring
     // geocode(place, (error,data) => {
     //     if(error){
     //         return console.log(error)
@@ -45,7 +45,7 @@ if(!place)
     //     })
     // })
 
-    //With the Object desctructuring
+    //With the Object destructuring
     geocode(place, (error,{latitude,longitude,location}) => {
             if(error){
                 return console.log(error)

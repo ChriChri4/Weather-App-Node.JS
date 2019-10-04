@@ -4,7 +4,7 @@ const forecast = (lat,long,callback) => {
 
 const url = 'https://api.aerisapi.com/observations/'+ encodeURIComponent(lat)+','+encodeURIComponent(long)/*torino,it*/+ '?client_id=tCpPcAJT7b9v3Yjnpigg5&client_secret=F2htG8UjXvwvy9aym1PNolgmuWqBPY6GjPOgidnI'
 
-// Without Object desctructuring
+// Without Object destructuring
 // request({url:url,json:true},(error,response) => {
 //     if(error)
 //     {
@@ -18,7 +18,7 @@ const url = 'https://api.aerisapi.com/observations/'+ encodeURIComponent(lat)+',
 // })
 // }
 
-// With Object desctructuring 
+// With Object destructuring 
 request({url:url,json:true},(error,{body}) => {
     if(error)
     {
