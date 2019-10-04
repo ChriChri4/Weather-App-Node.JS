@@ -1,10 +1,5 @@
 const request = require('request')
 
-// 3. The forecast function should have three potential calls to callback:
-//    - Low level error, pass string for error
-//    - Coordinate error, pass string for error
-//    - Success, pass forecast string for data (same format as from before)
-
 const forecast = (address,callback) => {
 
 const url = 'https://api.aerisapi.com/observations/'+ encodeURIComponent(address)/*torino,it*/+ '?client_id=tCpPcAJT7b9v3Yjnpigg5&client_secret=F2htG8UjXvwvy9aym1PNolgmuWqBPY6GjPOgidnI'
